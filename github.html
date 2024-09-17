@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+            gap: 15px;
+        }
+    
+        li {
+            list-style: none;
+        }
+    
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    
+        a:hover {
+            color: blue;
+            font-size: 18px;
+            transition: ease-in-out;
+            transition-delay: 20ms;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bubble.html">Bubble</a></li>
+                <li><a href="commentbox.html">Comment Box</a></li>
+                <li><a href="delegate.html">Delegate</a></li>
+                <li><a href="eventSummary.html">Event Summary</a></li>
+                <li><a href="github.html">Github</a></li>
+                <li><a href="moreevents.html">More Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 id="secret-info">My Secret Info</h1>
+    <input id="delete-confirm" placeholder="please type delete and press delete button to delete" type="text">
+    <button id="btn-delete" disabled>Delete</button>
+    <button id="btn-reset">Reset</button>
+    <script>
+        document.getElementById('delete-confirm').addEventListener(
+            'keyup', function (event) {
+                const text = event.target.value;
+                // console.log(text)
+                const deleteButton = document.getElementById('btn-delete');
+                if (text === 'delete') {
+                    deleteButton.removeAttribute('disabled')
+                }
+                else {
+                    deleteButton.setAttribute('disabled', true)
+                }
+            }
+        )
+        document.getElementById('btn-delete').addEventListener(
+            'click', function () {
+                const secret = document.getElementById('secret-info');
+                secret.style.display = 'none';
+            }
+        )
+        document.getElementById('btn-reset').addEventListener(
+            'click', function () {
+                window.location.href = 'github.html';
+            }
+        )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Events</title>
+    <style>
+        ul{
+            display: flex;
+            gap: 15px;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: blue;
+            font-size: 18px;
+            transition: ease-in-out;
+            transition-delay: 20ms;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bubble.html">Bubble</a></li>
+                <li><a href="commentbox.html">Comment Box</a></li>
+                <li><a href="delegate.html">Delegate</a></li>
+                <li><a href="eventSummary.html">Event Summary</a></li>
+                <li><a href="github.html">Github</a></li>
+                <li><a href="moreevents.html">More Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 onclick="console.log('I am Clicked')">DOM er ajke special events.</h1>
+    <button title="This is a tooltip" onclick="console.log(8)">Click Me!!!</button>
+    <button onclick="console.log('87')">Another Button!!</button>
+    <br>
+    <br>
+    <button onclick="document.body.style.backgroundColor='yellow'">Make Yellow</button>
+    <!-- option 2 -->
+    <button onclick="makeRed()">Make Red</button>
+    <!-- option 3 -->
+    <button id="make-blue">Make Blue</button>
+    <!-- option 3 another -->
+    <button id="make-purple">Make Purple</button>
+    <!-- option 4 -->
+    <button id="make-pink">Make Pink</button>
+    <!-- option 4 another -->
+    <button id="make-green">Make Green</button>
+    <!-- option 4 final -->
+    <button id="make-goldenrod">Make GoldenRod</button>
+    <script src="js/events.js"></script>
+</body>
+
+</html>

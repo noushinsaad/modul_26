@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <style>
+        body {
+            border: 2px solid red;
+        }
+
+        section {
+            border: 2px solid blue;
+        }
+
+        ul {
+            border: 2px solid green;
+        }
+
+        #item-2 {
+            border: 2px solid tomato;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+        }
+    
+        nav ul li {
+            list-style: none;
+        }
+    
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    
+        a:hover {
+            color: blue;
+            font-size: 18px;
+            transition: ease-in-out;
+            transition-delay: 20ms;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bubble.html">Bubble</a></li>
+                <li><a href="commentbox.html">Comment Box</a></li>
+                <li><a href="delegate.html">Delegate</a></li>
+                <li><a href="eventSummary.html">Event Summary</a></li>
+                <li><a href="github.html">Github</a></li>
+                <li><a href="moreevents.html">More Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Exploring Event Bubble</h1>
+    <section id="section">
+        <ul id="ul">
+            <li id="item-1">Lorem, ipsum dolor.</li>
+            <li id="item-2">Perspiciatis, aut in?</li>
+            <li id="item-3">Repellat, esse corrupti!</li>
+            <li id="item-4">Omnis, vitae eveniet.</li>
+            <li id="item-5">Laboriosam, natus neque!</li>
+            <li id="item-6">Vitae, aperiam nisi?</li>
+        </ul>
+    </section>
+    <script>
+        document.getElementById('item-2').addEventListener(
+            'click', function (event) {
+                console.log('Item-2 clicked');
+                // event.stopPropagation();
+                event.stopImmediatePropagation();
+            }
+        );
+        document.getElementById('item-2').addEventListener(
+            'click', function (event) {
+                console.log('Item-2 second clicked');
+                // event.stopPropagation();
+            }
+        );
+        document.getElementById('item-2').addEventListener(
+            'click', function (event) {
+                console.log('Item-2 third clicked');
+                // event.stopPropagation();
+            }
+        );
+        document.getElementById('item-2').addEventListener(
+            'click', function (event) {
+                console.log('Item-2 fourth clicked');
+                // event.stopPropagation();
+            }
+        );
+        document.getElementById('ul').addEventListener(
+            'click', function () {
+                console.log('UL clicked')
+            }
+        );
+        document.getElementById('section').addEventListener(
+            'click', function () {
+                console.log('Section clicked')
+            }
+        );
+        document.getElementById('body').addEventListener(
+            'click', function () {
+                console.log('Body of the HTML clicked')
+            }
+        );
+    </script>
+</body>
+
+</html>

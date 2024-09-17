@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+    <style>
+        nav ul {
+            display: flex;
+            gap: 15px;
+        }
+    
+        nav ul li {
+            list-style: none;
+        }
+    
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    
+        a:hover {
+            color: blue;
+            font-size: 18px;
+            transition: ease-in-out;
+            transition-delay: 20ms;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bubble.html">Bubble</a></li>
+                <li><a href="commentbox.html">Comment Box</a></li>
+                <li><a href="delegate.html">Delegate</a></li>
+                <li><a href="eventSummary.html">Event Summary</a></li>
+                <li><a href="github.html">Github</a></li>
+                <li><a href="moreevents.html">More Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Explore Event Delegate</h1>
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Error, doloremque voluptatum.</li>
+            <li class="item">Reprehenderit, ducimus aliquid.</li>
+            <li class="item">Ratione, veniam dicta.</li>
+            <li class="item">Aliquid, iste facilis!</li>
+            <li class="item">Pariatur, tenetur debitis?</li>
+        </ul>
+        <button id="btn-add-item">Add Item</button>
+        <br>
+        <br>
+        <div id="add-item-container" hidden>
+            <input id="add-item" type="text" placeholder="Add Some Item">
+            <button onclick="addItem()">Add</button>
+            <button onclick="doneAddingItem()">Done!!</button>
+        </div>
+    </section>
+    <script>
+        // const items = document.getElementsByClassName('item');
+        // for (const item of items) {
+        //     item.addEventListener('click', function (event) {
+        //         // console.log(event.target.parentNode)
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        const listContainer = document.getElementById('list-container');
+        listContainer.addEventListener('click', function (event) {
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        document.getElementById('btn-add-item').addEventListener(
+            'click', function () {
+                const addItem = document.getElementById('add-item-container');
+                addItem.style.display = 'block'
+            }
+        )
+
+        function addItem() {
+            const listContainer = document.getElementById('list-container');
+            const addItem = document.getElementById('add-item');
+
+            const li = document.createElement('li');
+            li.innerText = addItem.value;
+            if (li.innerText !== '') {
+                li.classList.add('item');
+                listContainer.appendChild(li);
+            }
+            else {
+                alert('Please Write Something')
+            }
+            addItem.value = '';
+        }
+
+        function doneAddingItem() {
+            const addItemContainer = document.getElementById('add-item-container');
+            addItemContainer.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

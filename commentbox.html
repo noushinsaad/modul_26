@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Comment</title>
+    <style>
+        ul {
+            display: flex;
+            gap: 15px;
+        }
+    
+        li {
+            list-style: none;
+        }
+    
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    
+        a:hover {
+            color: blue;
+            font-size: 18px;
+            transition: ease-in-out;
+            transition-delay: 20ms;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bubble.html">Bubble</a></li>
+                <li><a href="commentbox.html">Comment Box</a></li>
+                <li><a href="delegate.html">Delegate</a></li>
+                <li><a href="eventSummary.html">Event Summary</a></li>
+                <li><a href="github.html">Github</a></li>
+                <li><a href="moreevents.html">More Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Please add your comment</h1>
+    <div id="comment-container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quas fugit molestias nihil atque repudiandae
+            illo nam totam quaerat ut, possimus perspiciatis fuga recusandae necessitatibus, sapiente commodi cum
+            expedita quis. Tempora qui dicta odio totam necessitatibus deserunt eius consectetur tenetur, magnam quis
+            impedit ipsam eos? Nostrum fugit nam illo suscipit laboriosam tempora sed quisquam blanditiis
+            necessitatibus! Porro, iste quasi, deleniti minima voluptatum adipisci sequi perspiciatis omnis consequuntur
+            eum voluptate ab dolorum, cupiditate ad dignissimos accusantium error explicabo rerum sint officiis.</p>
+        <p>Ipsam sequi nemo praesentium error et quidem eveniet earum totam. Voluptatum illum ea odio officiis
+            exercitationem doloribus rerum quos aut ipsam maxime eveniet saepe possimus dolores, id ipsum, tempore
+            laboriosam. Quos eum facere voluptas molestias repellendus nobis nesciunt placeat labore? Quo, veniam! Quo
+            dolor molestiae adipisci deserunt maiores quasi vero, corrupti aliquid nobis esse exercitationem quibusdam
+            dolorem excepturi magni itaque. Voluptas nulla deleniti pariatur non sunt et ipsum repellendus tempora sed
+            aliquid itaque quidem quibusdam earum, magni accusamus cum error?</p>
+        <p>Corporis, totam. Animi adipisci, sunt nulla neque pariatur consequuntur cum cumque autem incidunt nesciunt
+            delectus porro eos provident totam ex recusandae! Aliquid, vero? Voluptas deserunt soluta porro temporibus
+            facere est vitae magni tempore blanditiis voluptatem voluptatum, veritatis sed ipsam ad, neque minus quasi
+            praesentium animi non repellat eum recusandae laboriosam reiciendis! Unde repudiandae ipsa sit esse
+            laboriosam qui tenetur impedit, provident corporis ipsum? Vitae tenetur, explicabo adipisci accusamus
+            repellat reprehenderit culpa? Modi illo dolore non officia magni exercitationem alias esse.</p>
+    </div>
+    <div>
+        <textarea placeholder="Comment" name="" id="new-comment" rows="10" cols="60"></textarea>
+        <br>
+        <button id="btn-post">Post</button>
+    </div>
+    <script>
+        // step 1: add event listener to the post button
+        document.getElementById('btn-post').addEventListener(
+            'click', function () {
+                // step 2: get the comment from inside the textarea
+                const commentBox = document.getElementById('new-comment');
+                const newComment = commentBox.value;
+
+                // step 3:set the comment inside the comment container
+                // 1. get the comment container
+                // 2. create a new element (p tag)
+                // 3. set the text of the comment as innerText of the p tag
+                // 4. add the p tag in the comment cinatainer using appendChild 
+                const commentContainer = document.getElementById('comment-container');
+                const p = document.createElement('p');
+                p.innerText = newComment;
+                commentContainer.appendChild(p)
+
+                // clearing the textarea
+                commentBox.value = '';
+            }
+        )
+    </script>
+</body>
+
+</html>
